@@ -3,26 +3,27 @@ NOM DU SCRIPT: script_admin.ps1
 *================================================================*
 DESCRIPTION:
 
- Le script va nous permettre de ::
+ Le script va nous permettre de :
 
- 1 :Afficher le répertoire courant
- 2 :Lister les fichiers du répertoire courant
- 3 :Afficher les informations consernant un fichier
- 4 :Changer de répertoire
- 5 :Afficher les n premiéres lignes d'un fichiers donnée		
+ 1 : Afficher le répertoire courant
+ 2 : Lister les fichiers du répertoire courant
+ 3 : Afficher les informations concernant un fichier
+ 4 : Changer de répertoire
+ 5 : Afficher les n premières lignes d'un fichiers donnée
 *================================================================*
-AUTEUR: Daniel DOS SANTOS < daniel.massy91@gmail.com >			
+AUTEUR: Daniel DOS SANTOS < daniel.massy91@gmail.com >
 *================================================================*
-DATE DE CREATION: 02/03/2018	
+DATE DE CREATION: 02/03/2018
 *================================================================*
 VERSION INITIALE: V.1.0
 *================================================================*   
-USAGE: PS C:\Users> powershell ./script_admin.ps1		
+USAGE: PS C:\Users> powershell ./script_admin.ps1
 *================================================================*
 NOTES: 
 
-L'utilisateur doit valider par le touche entrée se qui lui
-permet d'avoir le temps de visualiser le résultat pour note ou ..     
+L'utilisateur doit valider par la touche entrée, ce qui lui
+permet d'avoir le temps de visualiser le résultat pour pouvoir 
+le noter.     
 *================================================================*
 POWERSHELL VERSION: 5.1  
 *================================================================*
@@ -37,15 +38,14 @@ VERSIONS:
     2* ajouter des commentaires partout
     3* améliorer l'indentation
     4* faire vérifier le script par un debuguer
-    5* write-host ne pas permettre d'écrire juste de taper entrée
+    5* interdire l'écriture quand write-host est utilisé
     6* faire des fonctions pour la partie [veuillez appuyer sur entrée]
-    7* mettre en place un controle de caractères
+    7* mettre en place un contrôle de caractères
     8* mettre en place [1] ou [un] ou [I].....
     9* faire un manuel d'utilisation
-    10* possibilité de script non intéractif ( cmd -a xxx -b xxx -c xxx )
-	11* ne pas permetre les champ vides
+    10* possibilités de script non interactif ( cmd -a xxx -b xxx -c xxx )
+	11* ne pas permettre les champ vides
 	12* refaire les indentations
-	13* afficher la version courante du script dans le script
 #>
 
 ### Variables globales   ###
@@ -114,7 +114,7 @@ write-host "-----------------------------------------"
 write-host "*                                       *"
 write-host "*             BIENVENUE                 *"
 write-host "*                                       *"
-write-host "* SCRIPT << DECOUVERTE DE POWERSHELL >> *"
+write-host "* SCRIPT << DÉCOUVERTE DE POWERSHELL >> *"
 write-host "*                                       *"
 write-host "-----------------------------------------" 
 write-host ""
@@ -141,7 +141,7 @@ switch ($choix)
         write-host ""
         Write-Host "Choisissez votre fichier" -f Green
         write-host ""
-        $fichier = read-host "Chemin complait " 
+        $fichier = read-host "Chemin complet " 
         get-itemproperty $fichier | format-list
         write-host ""
         appuyez
@@ -151,7 +151,7 @@ switch ($choix)
         write-host ""
         Write-Host "Choisissez votre répertoire" -f Green
         write-host ""
-        $dossier = read-host "Chemin complait "
+        $dossier = read-host "Chemin complet "
         Set-Location $dossier
         appuyez
       }
@@ -160,11 +160,11 @@ switch ($choix)
         write-host ""
         Write-Host "Choisissez votre fichier" -f Green
         write-host ""
-        $nfic = read-host "Chemin complait "
+        $nfic = read-host "Chemin complet "
         write-host ""
         Write-Host "Premières lignes a afficher" -f Green
         write-host ""
-        $nligne = read-host "Combient de lignes "
+        $nligne = read-host "Combien de lignes "
         Write-Host ""
         Get-Content $nfic -TotalCount $nligne
         appuyez
