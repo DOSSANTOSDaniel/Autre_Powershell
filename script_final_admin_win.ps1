@@ -64,7 +64,7 @@ function appuyez
 function erreur
 {
 	Write-Host "##########################" -f Red -b black
-    Write-Host "##   Erreur de syntax   ##" -f Red -b black
+    Write-Host "##   Erreur de syntaxe   ##" -f Red -b black
     Write-Host "## Veuillez recommencer ##" -f Red -b black
     Write-Host "##########################" -f Red -b black
     sleep 3
